@@ -2,6 +2,7 @@ import { loadConfig } from "./config.js";
 import Logger from "./logger.js";
 import http from "http";
 import { handleRequest } from "./requestHandler.js";
+import { startAdminInterface } from "./adminInterface.js";
 const config = loadConfig();
 console.log("Configuration loaded successfully", config);
 
@@ -23,3 +24,5 @@ server.listen(config.port, config.host, () => {
   console.log(`HTTP Server is listening on ${config.host}:${config.port}`);
   logger.log(`Server started on ${config.host}:${config.port}`);
 });
+
+startAdminInterface(config, logger);

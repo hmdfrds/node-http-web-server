@@ -3,7 +3,7 @@ import { createWriteStream } from "fs";
 export default class Logger {
   /**
    * Initializes a new Logger.
-   * @param {string} logFile - The path to the log file.
+   * @param {string} logFile The path to the log file.
    */
   constructor(logFile) {
     this.logFile = logFile;
@@ -14,7 +14,7 @@ export default class Logger {
 
   /**
    * Write a log message with a timestamp.
-   * @param {string} message - The message to log.
+   * @param {string} message  The message to log.
    */
   log(message) {
     const timestamp = new Date().toUTCString();
@@ -24,9 +24,9 @@ export default class Logger {
 
   /**
    * Logs an HTTP request and increments the request counter.
-   * @param {string} clientIp - The client's IP address.
-   * @param {string} requestLine - The HTTP request line.
-   * @param {number} responseCode - The HTTP response code.
+   * @param {string} clientIp  The client's IP address.
+   * @param {string} requestLine  The HTTP request line.
+   * @param {number} responseCode  The HTTP response code.
    */
   logRequest(clientIp, requestLine, responseCode) {
     this.totalRequests++;
@@ -37,7 +37,7 @@ export default class Logger {
 
   /**
    * Logs an error message.
-   * @param {string} errorMessage - The error message.
+   * @param {string} errorMessage  The error message.
    */
   logError(errorMessage) {
     this.log(`ERROR: ${errorMessage}`);
@@ -55,7 +55,7 @@ export default class Logger {
 
   /**
    * Starts periodic loggign of server statistics.
-   * @param {'number'} intervalSeconds - Interval in seconds (default 60)
+   * @param {'number'} intervalSeconds  Interval in seconds (default 60)
    */
   startPeriodicStats(intervalSeconds = 60) {
     setInterval(() => {

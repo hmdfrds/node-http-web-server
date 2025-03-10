@@ -5,6 +5,14 @@ import mime from "mime";
 import { safePath, httpDateFormat } from "./utils.js";
 import { resolvePtr } from "dns";
 
+/**
+ * Handles an incoming HTTP request.
+ * Supports GET and HEAD requests, serves static files or directory listing.
+ * @param {import('http').IncomingMessage} req
+ * @param {import('http').ServerResponse} res
+ * @param {Object} config Loaded configuration object.
+ * @param {Object} logger Logger instance.
+ */
 export async function handleRequest(req, res, config, logger) {
   try {
     const { method, url } = req;
